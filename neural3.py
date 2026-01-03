@@ -10,40 +10,6 @@ st.set_page_config(
 )
 
 # -----------------------------
-# Sidebar (Drawer)
-# -----------------------------
-
-with st.sidebar:
-    st.title("🎮 Game Menu")
-    st.write("**You Are the Neural Network**")
-    st.markdown("---")
-
-    st.markdown("### 🧠 How to Play")
-    st.markdown(
-        """
-        1. Choose an image  
-        2. Observe the features  
-        3. Adjust importance  
-        4. See the prediction  
-        """
-    )
-
-    st.markdown("---")
-    st.markdown("### 🔄 Controls")
-
-    if st.button("Reset Game 🔁"):
-        for key in [
-            "image_choice",
-            "ears", "eyes", "tail",
-            "w_ears", "w_eyes", "w_tail"
-        ]:
-            if key in st.session_state:
-                del st.session_state[key]
-
-    st.markdown("---")
-    st.caption("📘 Fundamentals of AI\nInteractive Learning")
-
-# -----------------------------
 # Title & Introduction
 # -----------------------------
 st.title("🧠 You Are the Neural Network")
@@ -147,3 +113,30 @@ with st.expander("🧠 What is happening here? (Click to understand)"):
         "💡 This is a **simulation** to help you understand neural networks.\n"
         "It is not a real image recognition system."
     )
+
+st.markdown("---")
+st.markdown("### 🔄 Controls")
+
+if st.button("Reset Game 🔁"):
+    for key in [
+        "image_choice",
+        "ears", "eyes", "tail",
+        "w_ears", "w_eyes", "w_tail"
+    ]:
+        if key in st.session_state:
+            del st.session_state[key]
+    st.rerun()
+
+# ---------------------------------
+# Footer
+# ---------------------------------
+st.markdown(
+    """
+    <div style="text-align:center; font-size:13px; margin-top:40px;">
+        <b>Neural Network Simulation</b><br>
+        Fundamentals of AI – Rule Based</br>
+        Developed by Ts. Ainie Hayati Noruzman © 2026
+    </div>
+    """,
+    unsafe_allow_html=True
+)
